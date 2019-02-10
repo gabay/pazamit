@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Pazamit</string>
     <string name="action_settings">Settings</string>
+    <string name="title">פז&quot;מית</string>
+    <string name="lorem">לורם איפסום טקסט בלטינית שאמור להיות ארוך בלי סיבה מיוחדת, סתם כדי לראות איך זה ייראה אם הכל יהיה מלא בתוכן.</string>
+    <string name="main_b1">תפקידים</string>
+    <string name="main_b2">שירות</string>
+    <string name="main_b3">על האפליקציה</string>
+    <string name="main_b4">עזרה</string>
 </resources>

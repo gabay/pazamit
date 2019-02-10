@@ -9,20 +9,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
-    public static final String JOB_NAME = "com.rg.pazamit.JOB_NAME";
+public class JobActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_job);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+
+        Intent intent = getIntent();
+        String job_name = intent.getStringExtra(MainActivity.JOB_NAME);
+        TextView title = findViewById(R.id.title);
+        title.setText(job_name);
     }
 
     @Override
@@ -39,26 +42,6 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.main_b1:  // Jobs
-                Intent intent = new Intent(this, JobActivity.class);
-                intent.putExtra(JOB_NAME, "שם התפקיד");
-                startActivity(intent);
-                break;
-            case R.id.main_b2:  // support
-                Snackbar.make(view, "לך תחפש", Snackbar.LENGTH_SHORT).show();
-                break;
-            case R.id.main_b3:  // about
-                Snackbar.make(view, "לא", Snackbar.LENGTH_SHORT).show();
-                break;
-            case R.id.main_b4:  // help
-                Snackbar.make(view, "ביי", Snackbar.LENGTH_SHORT).show();
-                break;
-        }
-
     }
 
     @Override
